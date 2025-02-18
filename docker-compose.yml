@@ -2,6 +2,6 @@ services:
   app:
     build: .
     environment:
-      - PORT=3000
+      - PORT=5173
     ports:
-      - "3000:3000"
+      - "5173:5173"
