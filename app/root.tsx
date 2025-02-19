@@ -64,7 +64,7 @@ export default function App({ loaderData }: Route.ComponentProps) {
               </Link>
               <Link to="/" className="hover:opacity-50">About me</Link>
               <Link to="/" className="hover:opacity-50">My projects</Link>
-              <Link to="/" className="hover:opacity-50">Resume</Link>
+              <Link to="/resume" className="hover:opacity-50">Resume</Link>
             </div>
             <div className="flex gap-4 items-center">
               <ThemeToggle defaultTheme={loaderData.theme} className="mr-4"/>
