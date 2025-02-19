@@ -30,8 +30,12 @@
     "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
   --font-galette: "Galette", Arial, ui-sans-serif, system-ui, sans-serif,
     "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+
   --text-xxs: 0.625rem;
   --container-page: 65rem;
+
+  --color-resume: hsl(219.23, 20.63%, 24.71%);
+  --color-resume-foreground: hsl(0 0% 100%);
 }
 
 html,
@@ -84,7 +88,6 @@ body {
   --secondary-foreground: hsl(0 0% 98%);
   --muted: hsl(240 3.7% 15.9%);
   --muted-foreground: hsl(240 5% 64.9%);
-  /* TODO: Update the accent color to properly match the dark theme */
   --accent: hsl(219.23, 20.63%, 75.71%);
   --accent-foreground: hsl(0 0% 98%);
   --destructive: hsl(0 62.8% 30.6%);
@@ -97,6 +100,9 @@ body {
   --chart-3: hsl(30 80% 55%);
   --chart-4: hsl(280 65% 60%);
   --chart-5: hsl(340 75% 55%);
+
+  --color-resume: hsl(217, 21%, 15%);
+  --color-resume-foreground: hsl(219.23, 20.63%, 75.71%);
 }
 
 @theme inline {
