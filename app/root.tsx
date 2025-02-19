@@ -77,13 +77,15 @@ export default function App({ loaderData }: Route.ComponentProps) {
             </div>
           </div>
         </nav>
-        <main className="grow bg-primary-foreground py-4">
+        <main className="flex grow bg-primary-foreground">
           <Outlet/>
         </main>
-        <footer className="w-page self-center px-4 py-2">
-          <p className="text-center text-sm">
-            Made with ❤️ in Poland, &copy;{new Date().getFullYear()} Amadeusz Starzykiewicz
-          </p>
+        <footer className="flex justify-center border-t px-4 py-2">
+          <div className="w-page">
+            <p className="text-center text-sm">
+              Made with ❤️ in Poland, &copy;{new Date().getFullYear()} Amadeusz Starzykiewicz
+            </p>
+          </div>
         </footer>
       </div>
     </Document>
