@@ -1,41 +1,67 @@
-import type { Route } from './+types/blog_.$postId';
+import { lazy, Suspense } from 'react';
+import { redirect } from 'react-router';
 
-export function meta({}: Route.MetaArgs) {
-  // TODO: Properly load content
+import type { Route } from './+types/blog_.$postId';
+import { getPost } from '@/services/posts';
+import { Loading } from '@/components/loading';
+
+export function meta({ data }: Route.MetaArgs) {
   return [
-    { title: 'Blog - megawebmaster.pl' },
-    {
-      name: 'description',
-      content: `Read my thoughts and adventures in the web world.`,
-    },
+    { title: `${data.post.title} - Blog - megawebmaster.pl` },
+    { name: 'description', content: data.post.excerpt },
   ];
 }
 
-export default function Post() {
+export async function loader({ params }: Route.LoaderArgs) {
+  if (!params.postId) {
+    throw redirect('/blog');
+  }
+
+  const post = await getPost(params.postId)();
+  if (!post) {
+    throw redirect('/blog');
+  }
+
+  return {
+    post,
+  };
+}
+
+export async function clientLoader({ params }: Route.ClientLoaderArgs) {
+  if (!params.postId) {
+    throw redirect('/blog');
+  }
+
+  const post = await getPost(params.postId)();
+  if (!post) {
+    throw redirect('/blog');
+  }
+
+  return {
+    post,
+  };
+}
+
+// TODO: Do I want to have a specific to blog 404 page?
+// TODO: Generate IDs for each heading in MDX
+export default function Post({ params, loaderData }: Route.ComponentProps) {
+  const { post } = loaderData;
+  const Content = post.default ?? lazy(getPost(params.postId));
+
   return (
     <div className="w-blog mx-auto flex flex-col my-4">
       <div className="px-4 md:px-16 flex flex-col gap-2 md:py-4">
-        <h3 className="text-sm flex gap-2">
-          <span>#javascript</span>
-          <span>#programming</span>
-        </h3>
-        <h1 className="font-garet text-3xl">Test title for the blog</h1>
-        <div className="flex flex-col gap-2 my-2 md:my-4">
-          <article className="bg-background border rounded p-4 pr-8 flex flex-col gap-2">
-            <p>
-              I'm tinkering with the web since 2004 - the moment I got my first internet connection. Nowadays I'm more
-              focused on building products that deliver value to people around the world.
-            </p>
-            <p>
-              I'm truly passionate about creating great products and making the world a better place, one step at a
-              time. I want to grow in a product-focused way, so that I can help people around the world live a more
-              fulfilling life.
-            </p>
-            <p>
-              Always curious, always eager to learn more, always looking for improvements with constant drive for growth.
-            </p>
-          </article>
-        </div>
+        {post.tags && (
+          <h3 className="text-sm flex gap-2">
+            {post.tags.map((tag) => <span key={tag}>#{tag}</span>)}
+          </h3>
+        )}
+        <h1 className="font-garet text-3xl">{post.title}</h1>
+        <article className="bg-background border rounded p-4 pr-8 prose my-2 md:my-4">
+          <Suspense fallback={<Loading />}>
+            <Content/>
+          </Suspense>
+        </article>
       </div>
     </div>
   );
