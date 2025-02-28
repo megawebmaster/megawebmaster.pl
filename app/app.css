@@ -32,6 +32,7 @@
     "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
   --text-xxs: 0.625rem;
   --container-page: 65rem;
+  --container-blog: 52rem;
 }
 
 html,
