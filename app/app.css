@@ -33,6 +33,7 @@
 
   --text-xxs: 0.625rem;
   --container-page: 65rem;
+  --container-blog: 52rem;
 
   --color-resume: hsl(219.23, 20.63%, 24.71%);
   --color-resume-foreground: hsl(0 0% 100%);
