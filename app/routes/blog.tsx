@@ -1,5 +1,7 @@
-import type { Route } from './+types/blog';
 import { Link } from 'react-router';
+
+import type { Route } from './+types/blog';
+import { title, excerpt, publishedAt, tags } from '@/posts/2025-02-28.hello-world.mdx';
 
 export function meta({}: Route.MetaArgs) {
   return [
@@ -17,26 +19,16 @@ export default function Blog() {
       <div className="py-2 px-4 md:py-4 md:my-4 md:px-16">
         <h1 className="font-garet text-3xl">Latest posts 📖</h1>
         <div className="flex flex-col gap-8 my-4">
-          <article className="flex flex-col md:grid grid-cols-3 gap-4 bg-background border rounded p-4 pr-8">
-            <div className="w-full h-16 border border-black">Test image</div>
-            <div className="col-span-2 flex flex-col gap-2">
+          <article className="flex flex-col bg-background border rounded md:grid md:grid-cols-3">
+            <div className="w-full h-full">Test image</div>
+            <div className="col-span-2 flex flex-col gap-2 p-4 pr-8">
               <h3 className="text-sm flex gap-2">
-                <span>#javascript</span>
-                <span>#programming</span>
+                {tags.map((tag) => <span key={tag}>#{tag}</span>)}
               </h3>
               <h2 className="text-2xl font-semibold pb-2">
-                <Link to="/blog/test" className="block hover:opacity-50">Test title for the blog</Link>
+                <Link to="/blog/test" className="block hover:opacity-50">{title}</Link>
               </h2>
-              <div className="flex flex-col gap-2">
-                <p>
-                  I'm tinkering with the web since 2004 - the moment I got my first internet connection. Nowadays I'm more
-                  focused on building products that deliver value to people around the world.
-                </p>
-                <p>
-                  I'm truly passionate about creating great products and making the world a better place, one step at a
-                  time.
-                </p>
-              </div>
+              <div className="flex flex-col gap-2">{excerpt}</div>
               <Link to="/blog/test" className="self-end font-semibold hover:opacity-50">Read more</Link>
             </div>
           </article>
