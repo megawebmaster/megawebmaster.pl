@@ -4,26 +4,12 @@ import { ThemeToggle } from '@/components/theme-toggle';
 import { LinkedIn } from '@/components/linkedin';
 import { GitHub } from '@/components/github';
 import { SocialLink } from '@/components/social-link';
-import { MenuIcon, XIcon } from 'lucide-react';
-import {
-  Drawer,
-  DrawerClose,
-  DrawerContent,
-  DrawerFooter,
-  DrawerHeader,
-  DrawerTitle,
-  DrawerTrigger,
-} from '@/components/ui/drawer';
+import { AppLinks } from '@/components/app-links';
+import { AppDrawer } from '@/components/app-drawer';
 
 type NavigationProps = {
   theme?: string;
 }
-
-const Links = () => (
-  <>
-    <Link to="/" className="hover:opacity-50">About me</Link>
-  </>
-)
 
 export const AppNavigation = ({ theme }: NavigationProps) => (
   <nav className="border-b flex justify-center">
@@ -34,40 +20,10 @@ export const AppNavigation = ({ theme }: NavigationProps) => (
           <span className="text-xxs font-galette">megawebmaster</span>
         </Link>
         <div className="hidden gap-6 md:flex">
-          <Links />
+          <AppLinks/>
         </div>
       </div>
-      <Drawer direction="right">
-        <DrawerTrigger className="md:hidden">
-          <MenuIcon />
-          <span className="sr-only">Open menu</span>
-        </DrawerTrigger>
-        <DrawerContent>
-          <DrawerHeader className="flex flex-row items-center">
-            <DrawerTitle className="grow">Navigation</DrawerTitle>
-            <DrawerClose>
-              <XIcon />
-            </DrawerClose>
-          </DrawerHeader>
-          <div className="px-8 pb-8 flex flex-col gap-4">
-            <Links />
-          </div>
-          <h3 className="font-semibold px-4 pb-4">Socials</h3>
-          <div className="px-8 flex flex-col gap-3">
-            <SocialLink href="https://linkedin.com/in/amadeusz-starzykiewicz">
-              <LinkedIn className="size-6"/>
-              <span>LinkedIn</span>
-            </SocialLink>
-            <SocialLink href="https://github.com/megawebmaster">
-              <GitHub className="size-6"/>
-              <span>GitHub</span>
-            </SocialLink>
-          </div>
-          <DrawerFooter>
-            <ThemeToggle defaultTheme={theme} className="self-center"/>
-          </DrawerFooter>
-        </DrawerContent>
-      </Drawer>
+      <AppDrawer theme={theme}/>
       <div className="hidden gap-4 items-center md:flex">
         <ThemeToggle defaultTheme={theme} className="mr-4 hidden md:flex"/>
         <SocialLink href="https://linkedin.com/in/amadeusz-starzykiewicz">
