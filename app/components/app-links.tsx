@@ -27,5 +27,6 @@ export const AppLinks = ({ onClick }: LinksProps) => (
   <>
     <Link to="/" onClick={onClick}>About me</Link>
     <Link to="/resume" onClick={onClick}>Resume</Link>
+    <Link to="/blog" onClick={onClick}>Blog</Link>
   </>
 );
