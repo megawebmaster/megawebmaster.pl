@@ -1,13 +1,10 @@
 import { useLayoutEffect } from 'react';
-import { isRouteErrorResponse, Link, Links, Meta, Outlet, Scripts, ScrollRestoration, } from 'react-router';
+import { isRouteErrorResponse, Links, Meta, Outlet, Scripts, ScrollRestoration } from 'react-router';
 
 import type { Route } from './+types/root';
+import { AppNavigation } from '@/components/app-navigation';
+import { Footer } from '@/components/footer';
 import { theme } from '@/cookies';
-import { ThemeToggle } from '@/components/theme-toggle';
-import { SocialLink } from '@/components/social-link';
-import { LinkedIn } from '@/components/linkedin';
-import { GitHub } from '@/components/github';
-
 
 import './app.css';
 
@@ -55,38 +52,11 @@ export default function App({ loaderData }: Route.ComponentProps) {
   return (
     <Document theme={loaderData.theme}>
       <div className="min-h-screen w-full flex flex-col text-accent">
-        <nav className="border-b flex justify-center">
-          <div className="w-page self-center flex items-center gap-4">
-            <div className="grow py-2 flex gap-6 items-center font-galette">
-              <Link to="/" className="inline-flex flex-col items-center mr-6 hover:opacity-50">
-                <img src="/logo_simple.png" className="size-12" alt="Home"/>
-                <span className="text-xxs">megawebmaster</span>
-              </Link>
-              <Link to="/" className="hover:opacity-50">About me</Link>
-              <Link to="/" className="hover:opacity-50">My projects</Link>
-              <Link to="/" className="hover:opacity-50">Resume</Link>
-            </div>
-            <div className="flex gap-4 items-center">
-              <ThemeToggle defaultTheme={loaderData.theme} className="mr-4"/>
-              <SocialLink href="https://linkedin.com/in/amadeusz-starzykiewicz">
-                <LinkedIn className="size-6"/>
-              </SocialLink>
-              <SocialLink href="https://github.com/megawebmaster">
-                <GitHub className="size-6"/>
-              </SocialLink>
-            </div>
-          </div>
-        </nav>
+        <AppNavigation theme={loaderData.theme}/>
         <main className="flex grow bg-primary-foreground">
           <Outlet/>
         </main>
-        <footer className="flex justify-center border-t px-4 py-2">
-          <div className="w-page">
-            <p className="text-center text-sm">
-              Made with ❤️ in Poland, &copy;{new Date().getFullYear()} Amadeusz Starzykiewicz
-            </p>
-          </div>
-        </footer>
+        <Footer/>
       </div>
     </Document>
   );
