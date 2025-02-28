@@ -20,7 +20,7 @@
   font-style: normal;
   font-weight: 500;
   font-display: swap;
-  src: url('/fonts/galette-med.otf') format("otf");
+  src: url('/fonts/galette-med.otf') format("opentype");
 }
 
 @theme {
