@@ -45,7 +45,7 @@ body {
 
 :root {
   --background: hsl(0 0% 100%);
-  --foreground: hsl(240 10% 3.9%);
+  --foreground: hsl(240 10% 17.3%);
   --card: hsl(0 0% 100%);
   --card-foreground: hsl(240 10% 3.9%);
   --popover: hsl(0 0% 100%);
@@ -136,5 +136,9 @@ body {
   }
   body {
     @apply bg-background text-foreground;
+  }
+
+  .hero-image {
+    mask-image: linear-gradient(180deg, #fff 0 20%, transparent);
   }
 }
