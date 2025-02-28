@@ -33,7 +33,7 @@ export const AppNavigation = ({ theme }: NavigationProps) => (
           <img src="/logo_simple.png" className="size-8 md:size-12" alt="Home"/>
           <span className="text-xxs font-galette">megawebmaster</span>
         </Link>
-        <div className="hidden md:block">
+        <div className="hidden gap-6 md:flex">
           <Links />
         </div>
       </div>
