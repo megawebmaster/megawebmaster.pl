@@ -1,7 +1,7 @@
 import type { ReactNode } from 'react';
 
 export default ({ children }: { children: ReactNode }) => (
-  <h1 className="text-2xl">
+  <h3 className="text-2xl">
     {children}
-  </h1>
+  </h3>
 );
