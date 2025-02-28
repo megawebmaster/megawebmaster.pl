@@ -1,4 +1,7 @@
+import { useNavigate } from 'react-router';
+
 import type { Route } from './+types/blog_.$postId';
+import { getPost } from '@/services/posts';
 
 export function meta({}: Route.MetaArgs) {
   // TODO: Properly load content
@@ -11,31 +14,43 @@ export function meta({}: Route.MetaArgs) {
   ];
 }
 
-export default function Post() {
+// TODO: Load the content: figure out how to ensure the post exists and that I can sort them with dates in front.
+export async function loader({ params }: Route.LoaderArgs) {
+  if (!params.postId) {
+    return null;
+  }
+
+  return {
+    post: await getPost(params.postId),
+  };
+}
+
+// TODO: Do I want to have a specific to blog 404 page?
+// TODO: Generate IDs for each heading in MDX
+export default function Post({ loaderData }: Route.ComponentProps) {
+  const navigate = useNavigate();
+
+  if (loaderData === null) {
+    navigate('/blog');
+    return null;
+  }
+
+  const { post } = loaderData;
+  // TODO: Figure out how to hydrate MDX client-side
+  const Content = post.default ?? 'p';
+
   return (
     <div className="w-blog mx-auto flex flex-col my-4">
       <div className="px-4 md:px-16 flex flex-col gap-2 md:py-4">
-        <h3 className="text-sm flex gap-2">
-          <span>#javascript</span>
-          <span>#programming</span>
-        </h3>
-        <h1 className="font-garet text-3xl">Test title for the blog</h1>
-        <div className="flex flex-col gap-2 my-2 md:my-4">
-          <article className="bg-background border rounded p-4 pr-8 flex flex-col gap-2">
-            <p>
-              I'm tinkering with the web since 2004 - the moment I got my first internet connection. Nowadays I'm more
-              focused on building products that deliver value to people around the world.
-            </p>
-            <p>
-              I'm truly passionate about creating great products and making the world a better place, one step at a
-              time. I want to grow in a product-focused way, so that I can help people around the world live a more
-              fulfilling life.
-            </p>
-            <p>
-              Always curious, always eager to learn more, always looking for improvements with constant drive for growth.
-            </p>
-          </article>
-        </div>
+        {post.tags && (
+          <h3 className="text-sm flex gap-2">
+            {post.tags.map((tag) => <span key={tag}>#{tag}</span>)}
+          </h3>
+        )}
+        <h1 className="font-garet text-3xl">{post.title}</h1>
+        <article className="bg-background border rounded p-4 pr-8 prose my-2 md:my-4">
+          <Content/>
+        </article>
       </div>
     </div>
   );
