@@ -1,0 +1,31 @@
+export const description = `
+  I'm Amadeusz and I'm a product engineer.
+  Tinkering in the web since 2004, building products since 2019.
+  Learn more about me on my home page!
+`;
+
+export const Header = ({ children }) => (
+  <div className="flex flex-col gap-4 pb-8 text-foreground font-garet md:flex-row md:items-end md:pb-12">
+    {children}
+  </div>
+);
+export const Body = ({ children }) => (
+  <div className="flex flex-col gap-4 md:pr-24">
+    {children}
+  </div>
+);
+
+<Header>
+  # Hi there! 👋
+  ## I'm Amadeusz.
+</Header>
+<Body>
+  I'm tinkering with the web since 2004 - the moment I got my first internet connection.
+  Nowadays, I'm more focused on building products that deliver value to people around the world.
+
+  I'm truly passionate about creating great products and making the world a better place,
+  one step at a time. I want to grow in a product-focused way, so that I can help people around
+  the world live a more fulfilling life.
+
+  Always curious, always eager to learn more, always looking for improvements with constant drive for growth.
+</Body>

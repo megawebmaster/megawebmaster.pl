@@ -1,10 +1,12 @@
 import { useLayoutEffect } from 'react';
 import { isRouteErrorResponse, Links, Meta, Outlet, Scripts, ScrollRestoration } from 'react-router';
+import { MDXProvider } from '@mdx-js/react';
 
 import type { Route } from './+types/root';
 import { AppNavigation } from '@/components/app-navigation';
 import { Footer } from '@/components/footer';
 import { theme } from '@/cookies';
+import * as components from '@/components/mdx';
 
 import './app.css';
 
@@ -51,13 +53,15 @@ export default function App({ loaderData }: Route.ComponentProps) {
 
   return (
     <Document theme={loaderData.theme}>
-      <div className="min-h-screen w-full flex flex-col text-accent">
-        <AppNavigation theme={loaderData.theme}/>
-        <main className="flex grow bg-primary-foreground">
-          <Outlet/>
-        </main>
-        <Footer/>
-      </div>
+      <MDXProvider components={components}>
+        <div className="min-h-screen w-full flex flex-col text-accent">
+          <AppNavigation theme={loaderData.theme}/>
+          <main className="flex grow bg-primary-foreground">
+            <Outlet/>
+          </main>
+          <Footer/>
+        </div>
+      </MDXProvider>
     </Document>
   );
 }
