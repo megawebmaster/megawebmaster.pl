@@ -2,11 +2,10 @@ import type { ReactNode } from 'react';
 
 type ResumeSectionHeaderProps = {
   children: ReactNode;
-  color: 'accent' | 'resume-foreground'
 }
 
-export const ResumeSectionHeader = ({ children, color }: ResumeSectionHeaderProps) => (
-  <div className={`border-b border-${color} pb-2`}>
+export const ResumeSectionHeader = ({ children }: ResumeSectionHeaderProps) => (
+  <div className="section-header">
     {children}
   </div>
 );

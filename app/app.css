@@ -148,3 +148,101 @@ body {
     mask-image: linear-gradient(180deg, #fff 0 20%, transparent);
   }
 }
+
+@utility resume {
+  @apply w-full;
+
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-areas:
+    'image'
+    'bio'
+    'experience'
+    'side'
+  ;
+
+  .section-header {
+    @apply border-b border-accent pb-2 mb-4;
+  }
+  .left {
+    @apply bg-resume;
+    grid-area: left;
+  }
+  .right {
+    @apply bg-background;
+    grid-area: right;
+  }
+  .image, .bio, .side, .experience {
+    @apply py-4 px-8;
+  }
+  .image {
+    @apply bg-resume;
+    grid-area: image;
+  }
+  .bio {
+    @apply bg-resume text-resume-foreground mb-4;
+    grid-area: bio;
+
+    h1 {
+      @apply text-4xl tracking-wider;
+    }
+    h2 {
+      @apply text-xl tracking-widest my-2 mb-6;
+    }
+  }
+  .side {
+    @apply bg-background text-accent flex flex-col gap-10;
+    grid-area: side;
+  }
+  .expertise {
+    h4 span {
+      @apply text-nowrap;
+    }
+  }
+  .experience {
+    @apply bg-background text-accent;
+    grid-area: experience;
+  }
+
+  @media (width >= 48rem) {
+    .image, .bio, .side, .experience {
+      @apply px-32;
+    }
+  }
+
+  @media (width >= 64rem) {
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-areas:
+      'left image bio bio right'
+      'left side experience experience right'
+    ;
+
+    .image, .bio, .side, .experience {
+      @apply px-8;
+    }
+
+    .bio {
+      @apply bg-background text-accent mb-0 py-6;
+
+      h1 {
+        @apply text-5xl;
+      }
+      h2 {
+        @apply text-2xl;
+      }
+    }
+    .image {
+      @apply content-center;
+    }
+    .experience {
+      @apply bg-background text-accent;
+    }
+    .side {
+      @apply bg-resume text-resume-foreground;
+
+      .section-header {
+        @apply border-resume-foreground;
+      }
+    }
+  }
+}
