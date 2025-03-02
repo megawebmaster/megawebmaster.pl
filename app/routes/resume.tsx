@@ -43,7 +43,11 @@ export default function Resume() {
           </div>
         </div>
         <div className="image">
-          <img src="/me.jpg" alt="Picture of Amadeusz" className="mx-auto mt-8 mb-2 rounded-full size-40"/>
+          <picture>
+            <source type="image/webp" srcSet="/resume.webp, /resume@2x.webp 2x"/>
+            <source type="image/png" srcSet="/resume.png, /resume@2x.png 2x"/>
+            <img src="/resume.jpg" alt="Picture of Amadeusz" className="mx-auto mt-8 mb-2 rounded-full size-40"/>
+          </picture>
         </div>
         <div className="right"/>
       </div>
