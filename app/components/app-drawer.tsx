@@ -23,22 +23,24 @@ type AppDrawerProps = {
 
 export const AppDrawer = ({ theme }: AppDrawerProps) => {
   const [open, setOpen] = useState(false);
+  const openDrawer = () => setOpen(true);
+  const closeDrawer = () => setOpen(false);
 
   return (
-    <Drawer open={open} direction="right">
-      <DrawerTrigger className="md:hidden" onClick={() => setOpen(true)}>
+    <Drawer open={open} direction="right" onClose={closeDrawer}>
+      <DrawerTrigger className="md:hidden" onClick={openDrawer}>
         <MenuIcon/>
         <span className="sr-only">Open menu</span>
       </DrawerTrigger>
       <DrawerContent>
         <DrawerHeader className="flex flex-row items-center">
           <DrawerTitle className="grow">Navigation</DrawerTitle>
-          <DrawerClose>
+          <DrawerClose onClick={closeDrawer}>
             <XIcon/>
           </DrawerClose>
         </DrawerHeader>
         <div className="px-8 pb-8 flex flex-col gap-4">
-          <AppLinks onClick={() => setOpen(false)}/>
+          <AppLinks onClick={closeDrawer}/>
         </div>
         <h3 className="font-semibold px-4 pb-4">Socials</h3>
         <div className="px-8 flex flex-col gap-3">
