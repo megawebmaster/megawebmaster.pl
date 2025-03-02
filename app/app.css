@@ -148,3 +148,80 @@ body {
     mask-image: linear-gradient(180deg, #fff 0 20%, transparent);
   }
 }
+
+@utility resume {
+  @apply w-full;
+
+  /* TODO: Fix resume width */
+  display: grid;
+  grid-template-areas:
+    "image"
+    "header"
+    "experience"
+    "expertise"
+    "side-projects"
+    "languages"
+    "education"
+  ;
+
+  .section-header {
+    @apply border-b border-accent pb-2 mb-4;
+  }
+  .left {
+    @apply bg-resume;
+    grid-area: left;
+  }
+  .right {
+    @apply bg-background;
+    grid-area: right;
+  }
+  .image {
+    @apply bg-resume py-4 px-2;
+    grid-area: image;
+  }
+  .header {
+    @apply bg-resume text-resume-foreground py-4 px-8 mb-4;
+    grid-area: header;
+  }
+  .experience, .expertise, .side-projects, .languages, .education {
+    @apply bg-background text-accent py-4 px-8;
+  }
+  .experience {
+    grid-area: experience;
+  }
+  .expertise {
+    grid-area: expertise;
+  }
+  .side-projects {
+    grid-area: side-projects;
+  }
+  .languages {
+    grid-area: languages;
+  }
+  .education {
+    grid-area: education;
+  }
+
+  @media (width >= 64rem) {
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-areas:
+      "left image header header right"
+      "left expertise experience experience right"
+      "left side-projects experience experience right"
+      "left languages experience experience right"
+      "left education experience experience right"
+    ;
+
+    /* TODO: Fix sections not below each other as expected */
+    .header {
+      @apply bg-background text-accent mb-0 pt-20 pb-6;
+    }
+    .expertise, .side-projects, .languages, .education {
+      @apply bg-resume text-resume-foreground;
+
+      .section-header {
+        @apply border-resume-foreground;
+      }
+    }
+  }
+}

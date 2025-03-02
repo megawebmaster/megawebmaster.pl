@@ -22,11 +22,17 @@ export const ResumeExperience = ({ children, company, dates, title }: ResumeExpe
       <div className="absolute top-1.5 -left-8 rounded-full bg-accent size-4 flex items-center justify-center">
         <div className="size-2.5 bg-accent-foreground rounded-full"/>
       </div>
-      <h4 className="text-xl">
-        {company}
-        <span className="text-sm pl-2">
-        {startYear}{startYear !== endYear && <> - {endYear}</>} · {formatDuration(intervalToDuration({ start, end }))}
-      </span>
+      <h4 className="text-xl flex flex-col gap-2 md:flex-row">
+        <span>{company}</span>
+        <div className="flex gap-1">
+          <span className="text-sm">
+            {startYear}{startYear !== endYear && <> - {endYear}</>}
+          </span>
+          <span className="text-base">·</span>
+          <span className="text-sm">
+            {formatDuration(intervalToDuration({ start, end }))}
+          </span>
+        </div>
       </h4>
       <h3 className="text-2xl font-semibold mb-2">{title}</h3>
       <div className="text-sm">
