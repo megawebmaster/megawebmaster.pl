@@ -76,14 +76,14 @@ body {
 }
 
 .dark {
-  --background: hsl(0, 0%, 8.63%);
+  --background: hsl(217, 21%, 15%);
   --foreground: hsl(0 0% 98%);
   --card: hsl(240 10% 3.9%);
   --card-foreground: hsl(0 0% 98%);
   --popover: hsl(240 10% 3.9%);
   --popover-foreground: hsl(0 0% 98%);
   --primary: hsl(0 0% 98%);
-  --primary-foreground: hsl(240 5.9% 13%);
+  --primary-foreground: hsl(213, 14%, 12%);
   --secondary: hsl(240 3.7% 15.9%);
   --secondary-foreground: hsl(0 0% 98%);
   --muted: hsl(240 3.7% 15.9%);
@@ -169,7 +169,7 @@ body {
     grid-area: left;
   }
   .right {
-    @apply bg-background;
+    @apply bg-primary-foreground;
     grid-area: right;
   }
   .image, .bio, .side, .experience {
@@ -191,7 +191,7 @@ body {
     }
   }
   .side {
-    @apply bg-background text-accent flex flex-col gap-10;
+    @apply bg-primary-foreground text-accent flex flex-col gap-10;
     grid-area: side;
   }
   .expertise {
@@ -200,7 +200,7 @@ body {
     }
   }
   .experience {
-    @apply bg-background text-accent;
+    @apply bg-primary-foreground text-accent;
     grid-area: experience;
   }
 
@@ -211,7 +211,7 @@ body {
   }
 
   @media (width >= 64rem) {
-    grid-template-columns: repeat(5, 1fr);
+    grid-template-columns: 1rem repeat(3, 1fr) 1rem;
     grid-template-areas:
       'left image bio bio right'
       'left side experience experience right'
@@ -222,7 +222,7 @@ body {
     }
 
     .bio {
-      @apply bg-background text-accent mb-0 py-6;
+      @apply bg-primary-foreground text-accent mb-0 py-6;
 
       h1 {
         @apply text-5xl;
@@ -235,7 +235,7 @@ body {
       @apply content-center;
     }
     .experience {
-      @apply bg-background text-accent;
+      @apply bg-primary-foreground text-accent;
     }
     .side {
       @apply bg-resume text-resume-foreground;
@@ -244,5 +244,8 @@ body {
         @apply border-resume-foreground;
       }
     }
+  }
+  @media (width >= 80rem) {
+    grid-template-columns: repeat(5, 1fr);
   }
 }
