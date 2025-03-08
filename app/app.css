@@ -9,6 +9,13 @@
     @slot;
   }
 }
+@custom-variant group2-hover {
+  &:is(:where(.group2):hover *) {
+    @media (hover: hover) {
+      @slot;
+    }
+  }
+}
 
 /*noinspection CssUnknownTarget*/
 @font-face {
@@ -41,6 +48,12 @@
 
   --color-resume: hsl(219.23, 20.63%, 24.71%);
   --color-resume-foreground: hsl(0 0% 100%);
+
+  --color-rails: #D30001;
+  --color-javascript: #f7df1e;
+  --color-postgres: rgb(51, 103, 145);
+  --color-typescript: #3178c6;
+  --color-prisma: #4C51BF;
 }
 
 html,
