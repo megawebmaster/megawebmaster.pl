@@ -2,6 +2,7 @@ import { MDXProvider } from '@mdx-js/react';
 
 import type { Route } from './+types/resume';
 import * as components from '@/components/mdx/resume';
+import { ResumeImage } from '@/components/resume-image';
 
 import Bio from '@/content/resume/bio.mdx';
 import Experience from '@/content/resume/experience.mdx';
@@ -40,13 +41,7 @@ export default function Resume() {
               <Education />
             </div>
           </div>
-          <div className="image">
-            <picture>
-              <source type="image/webp" srcSet="/resume.webp, /resume@2x.webp 2x" />
-              <source type="image/jpeg" srcSet="/resume.jpg, /resume@2x.jpg 2x" />
-              <img src="/resume.jpg" alt="Picture of Amadeusz" className="mx-auto mt-8 mb-2 rounded-full size-40" />
-            </picture>
-          </div>
+          <ResumeImage />
         </div>
         <div className="right" />
       </div>
