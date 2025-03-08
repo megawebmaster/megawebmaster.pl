@@ -155,12 +155,7 @@ body {
 
   display: grid;
   grid-template-columns: 1fr;
-  grid-template-areas:
-    'image'
-    'bio'
-    'experience'
-    'side'
-;
+  grid-template-areas: 'content';
 
   .section-header {
     @apply border-b border-accent pb-2 mb-4;
@@ -176,8 +171,23 @@ body {
     grid-area: right;
   }
 
+  .content {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      'image'
+      'bio'
+      'experience'
+      'side'
+    ;
+  }
+
   .image, .bio, .side, .experience {
     @apply py-4 px-8;
+
+    > * {
+      @apply block max-w-96 mx-auto;
+    }
   }
 
   .image {
@@ -214,21 +224,50 @@ body {
     grid-area: experience;
   }
 
+  /* MD */
   @media (width >= 48rem) {
     .image, .bio, .side, .experience {
       @apply px-32;
+
+      > * {
+        @apply block max-w-128 mx-auto;
+      }
     }
   }
 
+  /* LG */
   @media (width >= 64rem) {
-    grid-template-columns: 1rem repeat(3, 1fr) 1rem;
-    grid-template-areas:
-      'left image bio bio right'
-      'left side experience experience right'
-  ;
+    grid-template-columns: 1fr max-content 1fr;
+    grid-template-areas: 'left content right';
+
+    .content {
+      @apply max-w-page;
+
+      grid-template-columns: repeat(3, 1fr);
+      grid-template-areas:
+        'image bio bio'
+        'side experience experience'
+      ;
+    }
 
     .image, .bio, .side, .experience {
-      @apply px-8;
+      > * {
+        @apply max-w-full mx-0;
+      }
+    }
+
+    .image, .side {
+      @apply pl-4 pr-8;
+    }
+    .bio {
+      @apply pl-8 pr-0;
+
+      p {
+        @apply pr-4;
+      }
+    }
+    .experience {
+      @apply pl-8 pr-4;
     }
 
     .bio {
@@ -258,8 +297,5 @@ body {
         @apply border-resume-foreground;
       }
     }
-  }
-  @media (width >= 80rem) {
-    grid-template-columns: repeat(5, 1fr);
   }
 }

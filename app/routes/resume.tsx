@@ -19,32 +19,34 @@ export default function Resume() {
     <MDXProvider components={components}>
       <div className="resume">
         <div className="left" />
-        <div className="bio">
-          <Bio />
-        </div>
-        <div className="experience">
-          <Experience />
-        </div>
-        <div className="side">
-          <div className="expertise">
-            <Expertise />
+        <div className="content">
+          <div className="bio">
+            <Bio />
           </div>
-          <div>
-            <SideProjects />
+          <div className="experience">
+            <Experience />
           </div>
-          <div>
-            <Languages />
+          <div className="side">
+            <div className="expertise">
+              <Expertise />
+            </div>
+            <div>
+              <SideProjects />
+            </div>
+            <div>
+              <Languages />
+            </div>
+            <div>
+              <Education />
+            </div>
           </div>
-          <div>
-            <Education />
+          <div className="image">
+            <picture>
+              <source type="image/webp" srcSet="/resume.webp, /resume@2x.webp 2x" />
+              <source type="image/jpeg" srcSet="/resume.jpg, /resume@2x.jpg 2x" />
+              <img src="/resume.jpg" alt="Picture of Amadeusz" className="mx-auto mt-8 mb-2 rounded-full size-40" />
+            </picture>
           </div>
-        </div>
-        <div className="image">
-          <picture>
-            <source type="image/webp" srcSet="/resume.webp, /resume@2x.webp 2x" />
-            <source type="image/jpeg" srcSet="/resume.jpg, /resume@2x.jpg 2x" />
-            <img src="/resume.jpg" alt="Picture of Amadeusz" className="mx-auto mt-8 mb-2 rounded-full size-40" />
-          </picture>
         </div>
         <div className="right" />
       </div>
