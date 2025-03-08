@@ -1,0 +1,24 @@
+import { Project } from '../../components/mdx/about-me/project.tsx';
+import { Alpine } from '../../components/mdx/about-me/project/alpine.tsx';
+import { Kafka } from '../../components/mdx/about-me/project/kafka.tsx';
+import { Pills } from '../../components/mdx/about-me/project/pills.tsx';
+import { Postgres } from '../../components/mdx/about-me/project/postgres.tsx';
+import { Rails } from '../../components/mdx/about-me/project/rails.tsx';
+
+## Projects <span className="text-nowrap">I contributed to</span>
+
+<Project
+  name="Castle"
+  description="Block bots, account takeovers, transaction fraud, and spam."
+  image="work/castle"
+  link="/work/castle"
+>
+  High-traffic, critical-path product that serves as a security measure against bots and fraud.
+
+  <Pills>
+    <Rails />
+    <Postgres />
+    <Alpine />
+    <Kafka />
+  </Pills>
+</Project>
