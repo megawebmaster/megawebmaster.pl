@@ -53,6 +53,10 @@ export default function App({ loaderData }: Route.ComponentProps) {
     document.documentElement.classList.toggle('dark', isDark);
   }, [loaderData.theme]);
 
+  useLayoutEffect(() => {
+    document.documentElement.classList.add('loaded');
+  }, []);
+
   return (
     <Document theme={loaderData.theme}>
       <MDXProvider components={components}>

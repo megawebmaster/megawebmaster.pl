@@ -4,6 +4,11 @@
 @plugin "tailwindcss-animate";
 
 @custom-variant dark (&:is(.dark *));
+@custom-variant loaded {
+  .loaded & {
+    @slot;
+  }
+}
 
 /*noinspection CssUnknownTarget*/
 @font-face {
