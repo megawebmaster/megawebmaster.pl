@@ -20,20 +20,20 @@ export const links: Route.LinksFunction = () => [
   { rel: 'manifest', href: '/manifest.json' },
 ];
 
-export function Document({ children, theme }: { children: React.ReactNode, theme?: string }) {
+export function Document({ children, theme }: { children: React.ReactNode; theme?: string }) {
   return (
     <html lang="en" className={theme}>
-    <head>
-      <meta charSet="utf-8"/>
-      <meta name="viewport" content="width=device-width, initial-scale=1"/>
-      <Meta/>
-      <Links/>
-    </head>
-    <body>
-    {children}
-    <ScrollRestoration/>
-    <Scripts/>
-    </body>
+      <head>
+        <meta charSet="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <Meta />
+        <Links />
+      </head>
+      <body>
+        {children}
+        <ScrollRestoration />
+        <Scripts />
+      </body>
     </html>
   );
 }
@@ -47,7 +47,9 @@ export async function loader({ request }: Route.LoaderArgs) {
 
 export default function App({ loaderData }: Route.ComponentProps) {
   useLayoutEffect(() => {
-    const isDark = loaderData.theme === 'dark' || (loaderData.theme === null && window.matchMedia('(prefers-color-scheme: dark)').matches);
+    const isDark =
+      loaderData.theme === 'dark' ||
+      (loaderData.theme === null && window.matchMedia('(prefers-color-scheme: dark)').matches);
     document.documentElement.classList.toggle('dark', isDark);
   }, [loaderData.theme]);
 
@@ -55,11 +57,11 @@ export default function App({ loaderData }: Route.ComponentProps) {
     <Document theme={loaderData.theme}>
       <MDXProvider components={components}>
         <div className="min-h-screen w-full flex flex-col text-accent">
-          <AppNavigation theme={loaderData.theme}/>
+          <AppNavigation theme={loaderData.theme} />
           <main className="flex grow bg-primary-foreground">
-            <Outlet/>
+            <Outlet />
           </main>
-          <Footer/>
+          <Footer />
         </div>
       </MDXProvider>
     </Document>
@@ -73,10 +75,7 @@ export function ErrorBoundary({ error }: Route.ErrorBoundaryProps) {
 
   if (isRouteErrorResponse(error)) {
     message = error.status === 404 ? '404' : 'Error';
-    details =
-      error.status === 404
-        ? 'The requested page could not be found.'
-        : error.statusText || details;
+    details = error.status === 404 ? 'The requested page could not be found.' : error.statusText || details;
   } else if (import.meta.env.DEV && error && error instanceof Error) {
     details = error.message;
     stack = error.stack;

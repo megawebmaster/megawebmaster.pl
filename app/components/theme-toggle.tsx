@@ -8,7 +8,7 @@ import { cn } from '@/lib/utils';
 type ThemeToggleProps = {
   className?: string;
   defaultTheme?: string;
-}
+};
 
 export const ThemeToggle = ({ className, defaultTheme }: ThemeToggleProps) => {
   const [theme, setTheme] = useState(defaultTheme);
@@ -24,10 +24,10 @@ export const ThemeToggle = ({ className, defaultTheme }: ThemeToggleProps) => {
   };
 
   return (
-    <div className={cn("flex items-center gap-2", className)}>
+    <div className={cn('flex items-center gap-2', className)}>
       <SunIcon className="hover:opacity-50 cursor-pointer" onClick={() => updateTheme('light')} />
       <Switch checked={theme === 'dark'} onCheckedChange={toggleTheme} />
       <MoonIcon className="hover:opacity-50 cursor-pointer" onClick={() => updateTheme('dark')} />
     </div>
   );
-}
+};

@@ -1,12 +1,11 @@
 import type { ReactNode } from 'react';
 import { NavLink } from 'react-router';
 
-
 type LinkProps = {
   children: ReactNode;
   onClick?: () => void;
   to: string;
-}
+};
 
 const Link = ({ children, onClick, to }: LinkProps) => (
   <NavLink
@@ -21,11 +20,15 @@ const Link = ({ children, onClick, to }: LinkProps) => (
 
 type LinksProps = {
   onClick?: () => void;
-}
+};
 
 export const AppLinks = ({ onClick }: LinksProps) => (
   <>
-    <Link to="/" onClick={onClick}>About me</Link>
-    <Link to="/resume" onClick={onClick}>Resume</Link>
+    <Link to="/" onClick={onClick}>
+      About me
+    </Link>
+    <Link to="/resume" onClick={onClick}>
+      Resume
+    </Link>
   </>
 );

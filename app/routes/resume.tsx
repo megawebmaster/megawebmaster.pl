@@ -11,45 +11,42 @@ import Languages from '@/content/resume/languages.mdx';
 import SideProjects from '@/content/resume/side-projects.mdx';
 
 export function meta({}: Route.MetaArgs) {
-  return [
-    { title: 'Resume - megawebmaster.pl' },
-    { name: 'description', content: `Amadeusz's resume` },
-  ];
+  return [{ title: 'Resume - megawebmaster.pl' }, { name: 'description', content: `Amadeusz's resume` }];
 }
 
 export default function Resume() {
   return (
     <MDXProvider components={components}>
       <div className="resume">
-        <div className="left"/>
+        <div className="left" />
         <div className="bio">
-          <Bio/>
+          <Bio />
         </div>
         <div className="experience">
-          <Experience/>
+          <Experience />
         </div>
         <div className="side">
           <div className="expertise">
-            <Expertise/>
+            <Expertise />
           </div>
           <div>
-            <SideProjects/>
+            <SideProjects />
           </div>
           <div>
-            <Languages/>
+            <Languages />
           </div>
           <div>
-            <Education/>
+            <Education />
           </div>
         </div>
         <div className="image">
           <picture>
-            <source type="image/webp" srcSet="/resume.webp, /resume@2x.webp 2x"/>
-            <source type="image/png" srcSet="/resume.png, /resume@2x.png 2x"/>
-            <img src="/resume.jpg" alt="Picture of Amadeusz" className="mx-auto mt-8 mb-2 rounded-full size-40"/>
+            <source type="image/webp" srcSet="/resume.webp, /resume@2x.webp 2x" />
+            <source type="image/png" srcSet="/resume.png, /resume@2x.png 2x" />
+            <img src="/resume.jpg" alt="Picture of Amadeusz" className="mx-auto mt-8 mb-2 rounded-full size-40" />
           </picture>
         </div>
-        <div className="right"/>
+        <div className="right" />
       </div>
     </MDXProvider>
   );

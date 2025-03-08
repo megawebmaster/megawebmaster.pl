@@ -3,9 +3,7 @@ export const Footer = () => (
     <div className="w-page">
       <p className="text-center text-sm">
         Made with ❤️ in Poland,
-        <span className="inline-block">
-          &copy;{new Date().getFullYear()} Amadeusz Starzykiewicz
-        </span>
+        <span className="inline-block">&copy;{new Date().getFullYear()} Amadeusz Starzykiewicz</span>
       </p>
     </div>
   </footer>
