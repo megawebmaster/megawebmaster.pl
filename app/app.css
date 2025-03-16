@@ -197,7 +197,7 @@ body {
     @apply py-4 px-8;
 
     > * {
-      @apply block w-full max-w-96 mx-auto;
+      @apply w-full max-w-96 mx-auto;
     }
   }
 
@@ -241,7 +241,7 @@ body {
       @apply px-32;
 
       > * {
-        @apply block w-128 max-w-128 mx-auto;
+        @apply w-128 max-w-128 mx-auto;
       }
     }
   }
