@@ -40,19 +40,12 @@ export function Document({ children, theme }: { children: React.ReactNode; theme
 
 export async function loader({ request }: Route.LoaderArgs) {
   const cookieHeader = request.headers.get('Cookie');
-  const themeCookie: string | undefined = (await theme.parse(cookieHeader)) || undefined;
+  const themeCookie: string = (await theme.parse(cookieHeader)) || 'system';
 
   return { theme: themeCookie };
 }
 
 export default function App({ loaderData }: Route.ComponentProps) {
-  useLayoutEffect(() => {
-    const isDark =
-      loaderData.theme === 'dark' ||
-      (loaderData.theme === null && window.matchMedia('(prefers-color-scheme: dark)').matches);
-    document.documentElement.classList.toggle('dark', isDark);
-  }, [loaderData.theme]);
-
   useLayoutEffect(() => {
     document.documentElement.classList.add('loaded');
   }, []);

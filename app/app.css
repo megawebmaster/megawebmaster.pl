@@ -3,7 +3,7 @@
 
 @plugin "tailwindcss-animate";
 
-@custom-variant dark (&:is(.dark *));
+@custom-variant dark (&:where(.dark, .dark *));
 @custom-variant loaded {
   .loaded & {
     @slot;
@@ -46,10 +46,6 @@
 html,
 body {
   @apply bg-background;
-
-  @media (prefers-color-scheme: dark) {
-    color-scheme: dark;
-  }
 }
 
 :root {
@@ -80,7 +76,7 @@ body {
   --radius: 0.6rem;
 }
 
-.dark {
+@utility dark {
   --background: hsl(217, 21%, 15%);
   --foreground: hsl(0 0% 98%);
   --card: hsl(240 10% 3.9%);
@@ -108,6 +104,16 @@ body {
 
   --color-resume: hsl(217, 21%, 15%);
   --color-resume-foreground: hsl(219.23, 20.63%, 75.71%);
+}
+
+.dark {
+  @apply dark;
+}
+
+.system {
+  @media (prefers-color-scheme: dark) {
+    @apply dark;
+  }
 }
 
 @theme inline {
