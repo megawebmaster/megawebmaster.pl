@@ -1,6 +1,7 @@
 import { MDXProvider } from '@mdx-js/react';
 
 import type { Route } from './+types/resume';
+import { useLoadedVariant } from '@/hooks/use-loaded-variant';
 import * as components from '@/components/mdx/resume';
 import { ResumeImage } from '@/components/resume-image';
 
@@ -16,6 +17,8 @@ export function meta({}: Route.MetaArgs) {
 }
 
 export default function Resume() {
+  useLoadedVariant();
+
   return (
     <MDXProvider components={components}>
       <div className="resume">

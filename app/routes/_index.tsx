@@ -1,6 +1,7 @@
 import { MDXProvider } from '@mdx-js/react';
 
 import type { Route } from './+types/_index';
+import { useLoadedVariant } from '@/hooks/use-loaded-variant';
 import AboutMe, { description } from '@/content/about-me.mdx';
 
 import * as components from '@/components/mdx/about-me';
@@ -10,6 +11,8 @@ export function meta({}: Route.MetaArgs) {
 }
 
 export default function Index() {
+  useLoadedVariant();
+
   return (
     <MDXProvider components={components}>
       <div className="w-page mx-auto flex flex-col relative">

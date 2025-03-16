@@ -1,5 +1,7 @@
 import { Link } from 'react-router';
 
+import { useLoadedVariant } from '@/hooks/use-loaded-variant';
+
 export const meta = () => {
   return [
     { title: '404 - megawebmaster.pl' },
@@ -11,6 +13,8 @@ export const meta = () => {
 };
 
 export default function Rest() {
+  useLoadedVariant();
+
   return (
     <div className="w-page mx-auto flex flex-col">
       <div className="my-4 p-8 pt-16 md:my-8 md:p-16">

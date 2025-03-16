@@ -46,10 +46,6 @@ export async function loader({ request }: Route.LoaderArgs) {
 }
 
 export default function App({ loaderData }: Route.ComponentProps) {
-  useLayoutEffect(() => {
-    document.documentElement.classList.add('loaded');
-  }, []);
-
   return (
     <Document theme={loaderData.theme}>
       <MDXProvider components={components}>
