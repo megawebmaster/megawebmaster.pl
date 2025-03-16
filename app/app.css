@@ -269,7 +269,7 @@ body {
 
     .image, .bio, .side, .experience {
       > * {
-        @apply w-auto mx-0;
+        @apply w-auto max-w-full mx-0;
       }
     }
 
