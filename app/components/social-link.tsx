@@ -6,7 +6,7 @@ type SocialLinkProps = {
 };
 
 export const SocialLink = ({ children, href }: SocialLinkProps) => (
-  <a className="hover:opacity-50 flex items-center gap-2" target="_blank" href={href}>
+  <a className="flex items-center gap-2 transition-opacity hover:opacity-50" target="_blank" href={href}>
     {children}
   </a>
 );

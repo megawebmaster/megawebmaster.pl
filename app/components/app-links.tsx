@@ -9,7 +9,9 @@ type LinkProps = {
 
 const Link = ({ children, onClick, to }: LinkProps) => (
   <NavLink
-    className={({ isActive }) => 'py-1 px-2 hover:opacity-50' + (isActive ? ' border-b border-accent' : '')}
+    className={({ isActive }) =>
+      'py-1 px-2 transition-opacity duration-300 hover:opacity-50' + (isActive ? ' border-b border-accent' : '')
+    }
     onClick={onClick}
     to={to}
     viewTransition

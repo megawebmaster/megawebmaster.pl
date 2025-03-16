@@ -15,7 +15,7 @@ export default function Index() {
 
   return (
     <MDXProvider components={components}>
-      <div className="w-page mx-auto flex flex-col relative">
+      <div className="w-page mx-auto my-8 flex flex-col relative">
         <AboutMe />
       </div>
     </MDXProvider>

@@ -156,7 +156,13 @@ body {
     @apply bg-background text-foreground;
   }
 
+  .hero:hover + div .hero-image {
+    scale: 1.02;
+  }
+
   .hero-image {
+    @apply transition-transform duration-300;
+
     mask-image: linear-gradient(180deg, #fff 0 20%, transparent);
   }
 }

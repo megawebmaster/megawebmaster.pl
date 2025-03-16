@@ -5,5 +5,5 @@ type HeroProps = {
 };
 
 export const Hero = ({ children }: HeroProps) => (
-  <div className="relative z-10 my-4 p-8 pt-56 md:my-8 md:p-16 md:pr-52 lg:pt-24">{children}</div>
+  <div className="hero relative z-10 p-8 pt-52 md:my-4 md:p-16 md:pr-52 lg:pt-20">{children}</div>
 );
