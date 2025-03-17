@@ -2,8 +2,8 @@ import { MDXProvider } from '@mdx-js/react';
 
 import type { Route } from './+types/resume';
 import { useLoadedVariant } from '@/hooks/use-loaded-variant';
-import * as components from '@/components/mdx/resume';
 import { ResumeImage } from '@/components/resume-image';
+import * as components from '@/components/mdx/resume';
 
 import Bio from '@/content/resume/bio.mdx';
 import Experience from '@/content/resume/experience.mdx';
