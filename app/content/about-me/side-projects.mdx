@@ -1,9 +1,15 @@
 import { Project } from '../../components/mdx/about-me/project.tsx';
+import { DoctrineLogo } from '../../components/mdx/about-me/project/doctrine-logo.tsx';
+import { PhpLogo } from '../../components/mdx/about-me/project/php-logo.tsx';
 import { Pills } from '../../components/mdx/about-me/project/pills.tsx';
-import { Postgres } from '../../components/mdx/about-me/project/postgres.tsx';
-import { Prisma } from '../../components/mdx/about-me/project/prisma.tsx';
-import { Remix } from '../../components/mdx/about-me/project/remix.tsx';
-import { Typescript } from '../../components/mdx/about-me/project/typescript.tsx';
+import { PostgresLogo } from '../../components/mdx/about-me/project/postgres-logo.tsx';
+import { PrismaLogo } from '../../components/mdx/about-me/project/prisma-logo.tsx';
+import { ReactLogo } from '../../components/mdx/about-me/project/react-logo.tsx';
+import { ReduxLogo } from '../../components/mdx/about-me/project/redux-logo.tsx';
+import { RemixLogo } from '../../components/mdx/about-me/project/remix-logo.tsx';
+import { RxjsLogo } from '../../components/mdx/about-me/project/rxjs-logo.tsx';
+import { SymfonyLogo } from '../../components/mdx/about-me/project/symfony-logo.tsx';
+import { TypescriptLogo } from '../../components/mdx/about-me/project/typescript-logo.tsx';
 
 ## My personal projects
 
@@ -17,9 +23,46 @@ import { Typescript } from '../../components/mdx/about-me/project/typescript.tsx
   or life experiences.
 
   <Pills>
-    <Remix />
-    <Prisma />
-    <Postgres />
-    <Typescript />
+    <RemixLogo />
+    <PrismaLogo />
+    <PostgresLogo />
+    <TypescriptLogo />
+  </Pills>
+</Project>
+<Project
+  name="Simply Budget"
+  description="Control your money with a simple budgeting app."
+  image="personal/simply-budget"
+  link="/projects/simply-budget"
+>
+  The tool motivates users by connecting financial tracking to achieving meaningful objectives, such as major purchases
+  or life experiences.
+
+  <Pills>
+    <ReactLogo />
+    <ReduxLogo />
+    <RxjsLogo />
+    <TypescriptLogo />
+    <SymfonyLogo />
+    <PhpLogo />
+    <DoctrineLogo />
+    <PostgresLogo />
+  </Pills>
+</Project>
+<Project
+  name="Meeting planner"
+  description="Schedule meeting day and time without too much hassle."
+  image="personal/spotkanie"
+  link="/projects/meeting-planner"
+>
+  The tool simplifies scheduling for groups of friends, eliminating the need for manually creating multiple time slots
+
+  <Pills>
+    <ReactLogo />
+    <TypescriptLogo />
+    <SymfonyLogo />
+    <PhpLogo />
+    <DoctrineLogo />
+    <PostgresLogo />
   </Pills>
 </Project>

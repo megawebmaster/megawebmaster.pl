@@ -1,7 +1,7 @@
 import { ProjectPill } from '@/components/mdx/about-me/project/project-pill';
 import Icon from './logos/typescript.svg?react';
 
-export function Typescript() {
+export function TypescriptLogo() {
   return (
     <ProjectPill className="border border-typescript bg-white">
       <Icon className="h-3" />
