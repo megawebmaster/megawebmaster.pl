@@ -54,6 +54,11 @@
   --color-postgres: rgb(51, 103, 145);
   --color-typescript: #3178c6;
   --color-prisma: #4C51BF;
+  --color-react: #61dafb;
+  --color-redux: #764ABC;
+  --color-php: #777bb3;
+  --color-rxjs: #e32286;
+  --color-doctrine: #FE8439;
 }
 
 html,
@@ -117,6 +122,8 @@ body {
 
   --color-resume: hsl(217, 21%, 15%);
   --color-resume-foreground: hsl(219.23, 20.63%, 75.71%);
+
+  /*--color-postgres: rgb(105, 158, 202);*/
 }
 
 .dark {
