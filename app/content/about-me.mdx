@@ -1,3 +1,4 @@
+import { AnimatedLink } from '../components/animated-link.tsx';
 import { Hero } from '../components/mdx/about-me/hero.tsx';
 import { HeroHeader } from '../components/mdx/about-me/hero-header.tsx';
 import { HeroBody } from '../components/mdx/about-me/hero-body.tsx';
@@ -5,8 +6,8 @@ import { HeroImage } from '../components/mdx/about-me/hero-image.tsx';
 import { Columns } from '../components/mdx/about-me/columns.tsx';
 import { Column } from '../components/mdx/about-me/column.tsx';
 
-import WorkExperience from './about-me/work-experience.mdx';
-import PersonalProjects from './about-me/personal-projects.mdx';
+import TopWorkExperience from './about-me/top-work-experience.mdx';
+import TopPersonalProjects from './about-me/top-personal-projects.mdx';
 
 export const description = `
   I'm Amadeusz and I'm a product engineer.
@@ -37,9 +38,19 @@ export const description = `
 <HeroImage />
 <Columns>
   <Column>
-    <PersonalProjects />
+    ## My personal projects
+
+    <TopPersonalProjects />
+    <div className="group text-right">
+      <AnimatedLink to="/projects">All personal projects</AnimatedLink>
+    </div>
   </Column>
   <Column>
-    <WorkExperience />
+    ## Projects <span className="text-nowrap">I contributed to</span>
+
+    <TopWorkExperience />
+    <div className="group text-right">
+      <AnimatedLink to="/projects">All work projects</AnimatedLink>
+    </div>
   </Column>
 </Columns>
