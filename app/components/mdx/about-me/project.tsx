@@ -2,7 +2,7 @@ import type { ReactNode } from 'react';
 import { Link } from 'react-router';
 
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
-import { ProjectLink } from '@/components/mdx/about-me/project/project-link';
+import { AnimatedLink } from '@/components/animated-link';
 import { cn } from '@/lib/utils';
 
 type ProjectProps = {
@@ -15,7 +15,11 @@ type ProjectProps = {
 
 export function Project({ children, description, image, link, name }: ProjectProps) {
   return (
-    <Card className={cn('group relative', { 'pt-30': !!image })}>
+    <Card
+      className={cn('group relative transition-shadow duration-200 shadow-resume/50 hover:shadow-md', {
+        'pt-30': !!image,
+      })}
+    >
       {image && (
         <div className="absolute top-0 w-full rounded-tl-xl rounded-tr-xl overflow-hidden">
           <picture>
@@ -45,7 +49,7 @@ export function Project({ children, description, image, link, name }: ProjectPro
       </CardHeader>
       <CardContent>
         {children}
-        <ProjectLink to={link} />
+        <AnimatedLink to={link}>View project</AnimatedLink>
       </CardContent>
     </Card>
   );
