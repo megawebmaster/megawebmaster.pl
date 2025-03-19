@@ -10,7 +10,7 @@ export default function Projects() {
   useLoadedVariant();
 
   return (
-    <div className="w-page mx-auto my-8 px-4 md:px-16 flex flex-col relative">
+    <div className="w-page mx-auto my-16 px-4 md:px-16 flex flex-col relative">
       <PersonalProjects />
     </div>
   );

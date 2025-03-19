@@ -32,5 +32,8 @@ export const AppLinks = ({ onClick }: LinksProps) => (
     <Link to="/resume" onClick={onClick}>
       Resume
     </Link>
+    <Link to="/projects" onClick={onClick}>
+      Personal Projects
+    </Link>
   </>
 );
