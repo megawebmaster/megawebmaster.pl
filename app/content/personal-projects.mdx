@@ -1,0 +1,95 @@
+import { AnimatedLink } from '../components/animated-link.tsx';
+import { Project } from '../components/mdx/about-me/project.tsx';
+import { DartLogo } from '../components/mdx/about-me/project/dart-logo.tsx';
+import { DoctrineLogo } from '../components/mdx/about-me/project/doctrine-logo.tsx';
+import { FlutterLogo } from '../components/mdx/about-me/project/flutter-logo.tsx';
+import { PhpLogo } from '../components/mdx/about-me/project/php-logo.tsx';
+import { Pills } from '../components/mdx/about-me/project/pills.tsx';
+import { PlaywrightLogo } from '../components/mdx/about-me/project/playwright-logo.tsx';
+import { PostgresLogo } from '../components/mdx/about-me/project/postgres-logo.tsx';
+import { PrismaLogo } from '../components/mdx/about-me/project/prisma-logo.tsx';
+import { ReactLogo } from '../components/mdx/about-me/project/react-logo.tsx';
+import { ReduxLogo } from '../components/mdx/about-me/project/redux-logo.tsx';
+import { RemixLogo } from '../components/mdx/about-me/project/remix-logo.tsx';
+import { RxjsLogo } from '../components/mdx/about-me/project/rxjs-logo.tsx';
+import { StrapiLogo } from '../components/mdx/about-me/project/strapi-logo.tsx';
+import { SymfonyLogo } from '../components/mdx/about-me/project/symfony-logo.tsx';
+import { TypescriptLogo } from '../components/mdx/about-me/project/typescript-logo.tsx';
+
+## List of my personal projects
+
+<div className="@container flex flex-col gap-6">
+  <Project
+    name="UpStarter"
+    description="Start your new business with confidence and personalized guidance."
+    image="personal/upstarter"
+    link="/projects/upstarter"
+  >
+    The app helps people turn their idea into a business with simple step-by-step instructions and guidance.
+
+    <Pills>
+      <FlutterLogo />
+      <DartLogo />
+      <RemixLogo />
+      <StrapiLogo />
+      <PostgresLogo />
+      <TypescriptLogo />
+    </Pills>
+  </Project>
+  <Project
+    name="Financial goals tracker"
+    description="Achieve your goals thanks to purposeful saving."
+    image="personal/financial-goals"
+    link="/projects/financial-goals"
+  >
+    The tool motivates users by connecting financial tracking to achieving meaningful objectives, such as major
+    purchases
+    or life experiences.
+
+    <Pills>
+      <RemixLogo />
+      <PrismaLogo />
+      <PostgresLogo />
+      <TypescriptLogo />
+      <PlaywrightLogo />
+    </Pills>
+  </Project>
+  <Project
+    name="Simply Budget"
+    description="Control your money with a simple budgeting app."
+    image="personal/simply-budget"
+    link="/projects/simply-budget"
+  >
+    The tool motivates users by connecting financial tracking to achieving meaningful objectives, such as major
+    purchases
+    or life experiences.
+
+    <Pills>
+      <ReactLogo />
+      <ReduxLogo />
+      <RxjsLogo />
+      <TypescriptLogo />
+      <SymfonyLogo />
+      <PhpLogo />
+      <DoctrineLogo />
+      <PostgresLogo />
+    </Pills>
+  </Project>
+  <Project
+    name="Meeting planner"
+    description="Schedule meeting day and time without too much hassle."
+    image="personal/spotkanie"
+    link="/projects/meeting-planner"
+  >
+    The tool simplifies scheduling for groups of friends, eliminating the need for manually creating multiple time slots
+
+    <Pills>
+      <ReactLogo />
+      <TypescriptLogo />
+      <SymfonyLogo />
+      <PhpLogo />
+      <DoctrineLogo />
+      <PostgresLogo />
+    </Pills>
+  </Project>
+</div>
