@@ -1,3 +1,5 @@
+import { ReduxLogo } from '../components/mdx/about-me/project/redux-logo.tsx';
+import { RxjsLogo } from '../components/mdx/about-me/project/rxjs-logo.tsx';
 import { Project } from '../components/mdx/about-me/project.tsx';
 import { DoctrineLogo } from '../components/mdx/about-me/project/doctrine-logo.tsx';
 import { PhpLogo } from '../components/mdx/about-me/project/php-logo.tsx';
@@ -15,6 +17,26 @@ export const description = 'Full list of my personal projects.';
 
 <div className="@container flex flex-col gap-6 my-4">
   <TopPersonalProjects />
+  <Project
+    name="Simply Budget"
+    description="Control your money with a simple budgeting app."
+    image="personal/simply-budget"
+    link="/projects/simply-budget"
+  >
+    The tool motivates users by connecting financial tracking to achieving meaningful objectives, such as major purchases
+    or life experiences.
+
+    <Pills>
+      <ReactLogo />
+      <ReduxLogo />
+      <RxjsLogo />
+      <TypescriptLogo />
+      <SymfonyLogo />
+      <PhpLogo />
+      <DoctrineLogo />
+      <PostgresLogo />
+    </Pills>
+  </Project>
   <Project
     name="Meeting planner"
     description="Schedule meeting day and time without too much hassle."
