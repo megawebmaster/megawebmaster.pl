@@ -27,7 +27,7 @@ export const AppDrawer = ({ theme }: AppDrawerProps) => {
 
   return (
     <Drawer open={open} direction="right" onClose={closeDrawer}>
-      <DrawerTrigger className="md:hidden" onClick={openDrawer}>
+      <DrawerTrigger className="lg:hidden" onClick={openDrawer}>
         <MenuIcon />
         <span className="sr-only">Open menu</span>
       </DrawerTrigger>
@@ -38,23 +38,27 @@ export const AppDrawer = ({ theme }: AppDrawerProps) => {
             <XIcon />
           </DrawerClose>
         </DrawerHeader>
-        <div className="px-8 pb-8 flex flex-col gap-4">
-          <AppLinks onClick={closeDrawer} />
+        <div className="grow flex flex-col overflow-y-auto">
+          <div className="grow">
+            <div className="px-8 pb-8 flex flex-col gap-4">
+              <AppLinks onClick={closeDrawer} />
+            </div>
+            <h3 className="font-semibold px-4 pb-4">Socials</h3>
+            <div className="px-8 mb-4 flex flex-col gap-3">
+              <SocialLink href="https://linkedin.com/in/amadeusz-starzykiewicz">
+                <LinkedIn className="size-6" />
+                <span>LinkedIn</span>
+              </SocialLink>
+              <SocialLink href="https://github.com/megawebmaster">
+                <GitHub className="size-6" />
+                <span>GitHub</span>
+              </SocialLink>
+            </div>
+          </div>
+          <DrawerFooter>
+            <ThemeToggle defaultTheme={theme} className="self-center" />
+          </DrawerFooter>
         </div>
-        <h3 className="font-semibold px-4 pb-4">Socials</h3>
-        <div className="px-8 flex flex-col gap-3">
-          <SocialLink href="https://linkedin.com/in/amadeusz-starzykiewicz">
-            <LinkedIn className="size-6" />
-            <span>LinkedIn</span>
-          </SocialLink>
-          <SocialLink href="https://github.com/megawebmaster">
-            <GitHub className="size-6" />
-            <span>GitHub</span>
-          </SocialLink>
-        </div>
-        <DrawerFooter>
-          <ThemeToggle defaultTheme={theme} className="self-center" />
-        </DrawerFooter>
       </DrawerContent>
     </Drawer>
   );

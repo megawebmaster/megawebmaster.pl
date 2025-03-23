@@ -12,7 +12,7 @@ type NavigationProps = {
 };
 
 export const AppNavigation = ({ theme }: NavigationProps) => (
-  <nav className="bg-resume text-resume-foreground flex justify-center">
+  <nav className="sticky top-0 z-20 bg-resume text-resume-foreground flex justify-center">
     <div className="w-full px-4 self-center flex items-center gap-4 lg:w-page">
       <div className="grow py-2 flex gap-6 items-center font-inter">
         <Link
@@ -22,13 +22,13 @@ export const AppNavigation = ({ theme }: NavigationProps) => (
           <img src="/logo_simple.png" className="size-8 md:size-12" alt="Home" />
           <span className="text-xxs font-galette">megawebmaster</span>
         </Link>
-        <div className="hidden gap-6 md:flex">
+        <div className="hidden gap-6 lg:flex">
           <AppLinks />
         </div>
       </div>
       <AppDrawer theme={theme} />
-      <div className="hidden gap-4 items-center md:flex">
-        <ThemeToggle defaultTheme={theme} className="mr-4 hidden md:flex" />
+      <div className="hidden gap-4 items-center lg:flex">
+        <ThemeToggle defaultTheme={theme} className="mr-4 hidden lg:flex" />
         <SocialLink href="https://linkedin.com/in/amadeusz-starzykiewicz">
           <LinkedIn className="size-6" />
         </SocialLink>
