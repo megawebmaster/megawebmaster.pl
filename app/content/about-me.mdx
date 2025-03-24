@@ -1,3 +1,4 @@
+import { Link } from 'react-router';
 import { AnimatedLink } from '../components/animated-link.tsx';
 import { Hero } from '../components/mdx/about-me/hero.tsx';
 import { HeroHeader } from '../components/mdx/about-me/hero-header.tsx';
@@ -41,16 +42,16 @@ export const description = `
     ## My personal projects
 
     <TopPersonalProjects />
-    <div className="group text-right">
+    <Link to="/projects" className="group text-right">
       <AnimatedLink to="/projects">All personal projects</AnimatedLink>
-    </div>
+    </Link>
   </Column>
   <Column>
     ## Projects <span className="text-nowrap">I contributed to</span>
 
     <TopWorkExperience />
-    <div className="group text-right">
+    <Link to="/work" className="group text-right">
       <AnimatedLink to="/work">All work projects</AnimatedLink>
-    </div>
+    </Link>
   </Column>
 </Columns>

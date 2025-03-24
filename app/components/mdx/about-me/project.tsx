@@ -46,13 +46,12 @@ export function Project({ children, description, image, link, name }: ProjectPro
         )}
         <div className="@md:py-6 @md:col-span-3">
           <CardHeader className="mb-4">
-            <CardTitle className="group-hover:underline">{name}</CardTitle>
+            <CardTitle>
+              <AnimatedLink>{name}</AnimatedLink>
+            </CardTitle>
             {description && <CardDescription>{description}</CardDescription>}
           </CardHeader>
-          <CardContent>
-            {children}
-            <AnimatedLink to={link}>View project</AnimatedLink>
-          </CardContent>
+          <CardContent>{children}</CardContent>
         </div>
       </Card>
     </Link>
